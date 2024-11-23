@@ -18,11 +18,21 @@ const Header: React.FC = () => {
     <header className="bg-primary text-primary-foreground">
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center dark:bg-zinc-950 dark:text-zinc-50">
         <Link to="/" className="text-2xl font-bold">
-          Book Review App
+          Book Management App
         </Link>
         <ul className="flex space-x-4 items-center">
           {token ? (
             <>
+              <li>
+                <Button variant="ghost" asChild>
+                  <Link to="/books">My Books</Link>
+                </Button>
+              </li>
+              <li>
+                <Button variant="ghost" asChild>
+                  <Link to="/add-book">Add Book</Link>
+                </Button>
+              </li>
               <li>
                 <Button variant="ghost" onClick={handleLogout}>
                   Logout

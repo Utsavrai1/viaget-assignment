@@ -1,10 +1,10 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuthStore } from "@/zustand/auth";
 
-const ProtectedRoute = () => {
+const PublicRoute = () => {
   const token = useAuthStore((state) => state.token);
 
-  return token ? <Outlet /> : <Navigate to="/login" replace />;
+  return !token ? <Outlet /> : <Navigate to="/" replace />;
 };
 
-export default ProtectedRoute;
+export default PublicRoute;

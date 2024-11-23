@@ -15,7 +15,7 @@ export const useLogin = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.post(`${BACKEND_URL}/api/v1/login`, {
+      const response = await axios.post(`${BACKEND_URL}/api/v1/auth/login`, {
         email,
         password,
       });

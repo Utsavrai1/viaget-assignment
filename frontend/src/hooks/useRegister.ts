@@ -15,7 +15,7 @@ export const useRegister = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.post(`${BACKEND_URL}/api/v1/register`, {
+      const response = await axios.post(`${BACKEND_URL}/api/v1/auth/register`, {
         name,
         email,
         password,
