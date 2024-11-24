@@ -14,12 +14,13 @@ datasource db {
 }
 
 model User {
-  id       Int      @id @default(autoincrement())
-  email    String   @unique
-  password String
-  name     String?
-  reviews  Review[]
-  books    Book[]   @relation("UserBooks")
+  id         Int      @id @default(autoincrement())
+  email      String   @unique
+  password   String
+  name       String?
+  reviews    Review[]
+  books      Book[]   @relation("UserBooks")
+  likedBooks Like[]   @relation("UserLikes")
 }
 
 model Book {
@@ -35,6 +36,7 @@ model Book {
   reviews    Review[]
   userId     Int
   user       User     @relation("UserBooks", fields: [userId], references: [id])
+  likedBy    Like[]   @relation("BookLikes")
 }
 
 model Review {
@@ -47,4 +49,14 @@ model Review {
   userId    Int
   book      Book     @relation(fields: [bookId], references: [id])
   bookId    Int
+}
+
+model Like {
+  id     Int  @id @default(autoincrement())
+  userId Int
+  bookId Int
+  user   User @relation("UserLikes", fields: [userId], references: [id])
+  book   Book @relation("BookLikes", fields: [bookId], references: [id])
+
+  @@unique([userId, bookId])
 }

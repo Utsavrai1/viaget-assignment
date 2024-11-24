@@ -32,7 +32,7 @@ const AddBook: React.FC = () => {
 
   return (
     <div className="max-w-md mx-auto">
-      <h1 className="text-2xl font-semibold mb-4">Add New Book</h1>
+      <h1 className="text-xl font-semibold mb-4">Add New Book</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="title">Title</Label>

@@ -26,7 +26,7 @@ const App: React.FC = () => {
         <Router>
           <div className="min-h-screen bg-background text-foreground dark:bg-zinc-950 dark:text-zinc-50">
             <Header />
-            <main className="container mx-auto px-4 py-8">
+            <main className="container mx-auto px-4 py-4">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route element={<PublicRoute />}>

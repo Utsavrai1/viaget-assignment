@@ -15,10 +15,10 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="bg-primary text-primary-foreground">
+    <header className="bg-primary text-primary-foreground sticky top-0 z-10 bg-zinc-50 dark:bg-zinc-950">
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center dark:bg-zinc-950 dark:text-zinc-50">
         <Link to="/" className="text-2xl font-bold">
-          Book Management App
+          BookHive
         </Link>
         <ul className="flex space-x-4 items-center">
           {token ? (
