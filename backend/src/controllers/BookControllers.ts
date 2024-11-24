@@ -89,8 +89,12 @@ const getAllBooks = async (req: Request, res: Response) => {
         },
       });
 
-      const likedGenres = [...new Set(likedBooks.map((book) => book.genre))];
-      const likedAuthors = [...new Set(likedBooks.map((book) => book.author))];
+      const likedGenres = [
+        ...new Set(likedBooks.map((book: any) => book.genre)),
+      ];
+      const likedAuthors = [
+        ...new Set(likedBooks.map((book: any) => book.author)),
+      ];
 
       if (likedGenres.length > 0 || likedAuthors.length > 0) {
         recommendedBooks = await prisma.book.findMany({
@@ -238,7 +242,7 @@ const getGenres = async (req: Request, res: Response) => {
       distinct: ["genre"],
     });
 
-    const genreList = genres.map((book) => book.genre);
+    const genreList = genres.map((book: any) => book.genre);
 
     res.status(200).json(genreList);
   } catch (error) {
