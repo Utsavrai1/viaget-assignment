@@ -12,4 +12,4 @@ RUN npm run build
 
 EXPOSE 3002
 
-CMD ["sh", "-c", "npx prisma generate && npx prisma migrate deploy --schema=./prisma/schema.prisma && HOSTNAME=${HOSTNAME:-0.0.0.0} node dist/index.js"]
+CMD ["sh", "-c", "npx prisma generate && HOSTNAME=${HOSTNAME:-0.0.0.0} node dist/index.js"]
